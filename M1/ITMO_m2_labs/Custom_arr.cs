@@ -1,7 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 
-namespace ITMO_m2_labs
+namespace ITMO_labs_task1
 {
     public class Custom_arr
     {
@@ -63,7 +63,7 @@ namespace ITMO_m2_labs
             return sum;
         }
 
-
+  
 
 
 

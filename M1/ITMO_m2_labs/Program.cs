@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ITMO_m2_labs
+namespace ITMO_labs_task1
 {
     internal class Program
     {
@@ -40,7 +40,7 @@ namespace ITMO_m2_labs
             }
 
             Console.WriteLine("\nНажмите Enter, чтобы завершить программу.");
-            Console.ReadLine(); // Ожидание пользовательского ввода
+            Console.ReadLine(); 
         }
     }
 }
