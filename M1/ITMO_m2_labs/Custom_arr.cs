@@ -1,6 +1,9 @@
 ﻿using System;
-using System.CodeDom;
-
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 namespace ITMO_labs_task1
 {
     public class Custom_arr
@@ -39,31 +42,28 @@ namespace ITMO_labs_task1
             return maxElement;
            
         }
-      
+
         public double GetSumUntilTheLastPositiveElement()
         {
             double sum = 0;
             int lastIndex = -1;
 
+          
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] > 0)
                 {
                     lastIndex = i;
                 }
-
-                sum += array[i];
             }
 
-            if (lastIndex != -1)
+            for (int i = 0; i < lastIndex; i++)
             {
-                sum -= array[lastIndex];
+                sum += array[i];
             }
 
             return sum;
         }
-
-  
 
 
 
@@ -73,26 +73,24 @@ namespace ITMO_labs_task1
 
             for (int i = 0; i < array.Length; i++)
             {
-                if (Math.Abs(array[i]) >= a && Math.Abs(array[i]) <= b)
-                {
-                    array[newIndex] = 0;
-                }
-                else
+  
+                if (!(Math.Abs(array[i]) >= a && Math.Abs(array[i]) <= b))
                 {
                     array[newIndex] = array[i];
+                    newIndex++; 
                 }
             }
 
-            // Заполняем оставшиеся элементы нулями
             for (int i = newIndex; i < array.Length; i++)
             {
                 array[i] = 0;
             }
         }
 
-        public double[] GetArray()
+
+        public double[] Array
         {
-            return array;
+            get { return array; }
         }
     }
 }
