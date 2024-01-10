@@ -4,16 +4,18 @@ namespace Tests
     public class CustomArrTests
     {
         [Fact]
-        public void Constructor_InvalidLength_ThrowsArgumentOutOfRangeException()
+        public void Constructor_WithPositiveLength_CreatesArray()
         {
-            Assert.Throws<ArgumentOutOfRangeException>(() => new Custom_arr(-1));
+            var customArr = new Custom_arr(5);
+            Assert.Equal(5, customArr.Array.Length);
         }
 
-        [Fact]
-        public void GetMaxElement_EmptyArray_ThrowsInvalidOperationException()
+        [Theory]
+        [InlineData(0)]
+        [InlineData(-1)]
+        public void Constructor_WithNonPositiveLength_ThrowsException(int length)
         {
-            var arr = new Custom_arr(0);
-            Assert.Throws<InvalidOperationException>(() => arr.GetMaxElement());
+            Assert.Throws<ArgumentOutOfRangeException>(() => new Custom_arr(length));
         }
 
     }
