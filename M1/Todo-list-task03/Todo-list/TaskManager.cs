@@ -1,16 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace Todo_list
 {
     public class TaskManager
     {
         private List<Task> tasks;
-
+        private JsonDataSaver jsonStorage;
+        private XmlDataSaver xmlStorage;
+        
         public TaskManager()
         {
             tasks = new List<Task>();
+            jsonStorage = new JsonDataSaver();
+            xmlStorage = new XmlDataSaver();    
         }
 
         public void AddTask(Task task)
@@ -26,8 +33,54 @@ namespace Todo_list
 
         public List<Task> GetActualTasks(int count)
         {
+            return tasks
+                .Where(task => task.Deadline != null) 
+                .OrderBy(task => task.Deadline) 
+                .Take(count) 
+                .ToList();
+        }
+        public void SaveTasksToJson()
+        {
+            jsonStorage.SaveData(tasks);
+        }
+        public void LoadTasksFromJson() {
+            tasks = jsonStorage.LoadData();
+        }
+        public void SaveTasksToXml() 
+        {
+            xmlStorage.SaveData(tasks);
+        }
+        public void LoadTasksFromXml() {
+            tasks = xmlStorage.LoadData();
+        }
+        public void SaveTasksToSQlite()
+        {
+            using (var db = new TodoContext())
+            {
 
-            return tasks.OrderBy(task => task.Deadline).Take(count).ToList();
+                foreach (var task in tasks)
+                {
+                  
+                    var existingTask = db.Tasks.FirstOrDefault(t => t.Id == task.Id);
+                    if (existingTask == null)
+                    {
+                        db.Tasks.Add(task);
+                    }
+                    else
+                    {
+                        db.Entry(existingTask).CurrentValues.SetValues(task);
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+        public void LoadTasksFromSQlite()
+        {
+            using (var db = new TodoContext())
+            {
+                tasks = db.Tasks.ToList();
+            }
         }
     }
+
 }

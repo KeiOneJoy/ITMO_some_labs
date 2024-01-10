@@ -10,22 +10,24 @@ namespace Todo_list
 {
     public class JsonDataSaver : IDataSaver
     {
-        private readonly string filePath;
+        private string filePath;
 
-        public JsonDataSaver(string _filePath)
-        {
-            filePath = _filePath;
-        }
         public void SaveData(List<Task> tasks)
         {
+            if(string.IsNullOrEmpty(filePath))
+            {
+               filePath = "Todo.json";
+            }
             string jsonString = JsonSerializer.Serialize(tasks);
+         
             File.WriteAllText(filePath, jsonString);
         }
 
         public List<Task> LoadData()
         {
-            if (!File.Exists(filePath)) {
-                return new List<Task>();
+            if (string.IsNullOrEmpty(filePath))
+            {
+                throw new ArgumentNullException("File path is not specified.", nameof(filePath));
             }
             string jsonString = File.ReadAllText(filePath);
             return JsonSerializer.Deserialize<List<Task>>(jsonString);

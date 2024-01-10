@@ -10,26 +10,33 @@ namespace Todo_list
 {
     public class XmlDataSaver : IDataSaver
     {
-        private readonly string filePath;
+        private string filePath;
 
-        public XmlDataSaver(string _filePath)
-        {
-            filePath = _filePath;
-        }
 
         public void SaveData(List<Task> tasks)
         {
+            if (string.IsNullOrEmpty(filePath))
+            {
+                filePath = "Todo.xml";
+            }
             var serializer = new XmlSerializer(typeof(List<Task>));
-            StreamWriter myWriter = new StreamWriter(filePath);
-            serializer.Serialize(myWriter, tasks);
+            using (var writer = new StreamWriter(filePath))
+            {
+                serializer.Serialize(writer, tasks);
+            }
         }
 
         public List<Task> LoadData()
         {
-            if (!File.Exists(filePath)) return new List<Task>();
+            if (string.IsNullOrEmpty(filePath))
+            {
+                throw new ArgumentNullException("File path is not specified.", nameof(filePath));
+            }
             var serializer = new XmlSerializer (typeof(List<Task>));
-            using var reader = new FileStream(filePath,FileMode.Open);
-            return (List<Task>)serializer.Deserialize(reader);
+            using (var reader = new FileStream(filePath, FileMode.Open))
+            {
+                return (List<Task>)serializer.Deserialize(reader);
+            }
         }
     }
 }
