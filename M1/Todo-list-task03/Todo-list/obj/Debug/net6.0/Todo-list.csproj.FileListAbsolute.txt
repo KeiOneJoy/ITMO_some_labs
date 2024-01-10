@@ -1,0 +1,15 @@
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\obj\Debug\net6.0\Todo-list.csproj.AssemblyReference.cache
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\obj\Debug\net6.0\Todo-list.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\obj\Debug\net6.0\Todo-list.AssemblyInfoInputs.cache
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\obj\Debug\net6.0\Todo-list.AssemblyInfo.cs
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\obj\Debug\net6.0\Todo-list.csproj.CoreCompileInputs.cache
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\bin\Debug\net6.0\Todo-list.exe
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\bin\Debug\net6.0\Todo-list.deps.json
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\bin\Debug\net6.0\Todo-list.runtimeconfig.json
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\bin\Debug\net6.0\Todo-list.dll
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\bin\Debug\net6.0\Todo-list.pdb
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\obj\Debug\net6.0\Todo-list.dll
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\obj\Debug\net6.0\refint\Todo-list.dll
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\obj\Debug\net6.0\Todo-list.pdb
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\obj\Debug\net6.0\Todo-list.genruntimeconfig.cache
+C:\Users\user\YandexDisk-341769@edu.itmo.ru\ITMO\progs_c#\ITMO_C#_some_labs\ITMO_some_labs\M1\Todo-list\Todo-list\obj\Debug\net6.0\ref\Todo-list.dll
