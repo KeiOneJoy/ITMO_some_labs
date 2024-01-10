@@ -94,12 +94,10 @@ namespace Todo_list
                         }
                         foreach (var task in actualTasks)
                         {
-                            string Title = task.Title;
-                            string Description = task.Description;
                             string deadlineStr = task.Deadline.ToString("dd.MM.yyyy");
                             string tagsStr = task.Tags != null ? string.Join(", ", task.Tags) : "No Tags";
 
-                            Console.WriteLine($"Title: {Title}, Description: {Description}, Deadline: {deadlineStr}, Tags: {tagsStr}");
+                            Console.WriteLine($"Title: {task.Title}, Description: {task.Description}, Deadline: {deadlineStr}, Tags: {tagsStr}");
                         }
                         break;
 

@@ -26,8 +26,11 @@ namespace Todo_list
 
         public List<Task> GetActualTasks(int count)
         {
-
-            return tasks.OrderBy(task => task.Deadline).Take(count).ToList();
+            return tasks
+                .Where(task => task.Deadline != null)
+                .OrderBy(task => task.Deadline)
+                .Take(count)
+                .ToList();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Todo_list
                 Console.WriteLine("Menu: ");
                 Console.WriteLine("1. Add task");
                 Console.WriteLine("2. Search task");
-                Console.WriteLine("3. Least tasks");
+                Console.WriteLine("3. Actual tasks");
                 Console.WriteLine("4. Exit");
                 Console.Write("> ");
 
@@ -53,7 +53,6 @@ namespace Todo_list
                         Console.WriteLine("Search tasks by tag");
                         var searchTags = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
                         var foundTasks = manager.SearchByTags(searchTags);
-                        Console.WriteLine(searchTags);
 
                         if(foundTasks.Count == 0)
                         {
@@ -68,11 +67,30 @@ namespace Todo_list
                         }
                         break;
                     case "3":
-                        var actualTasks = manager.GetActualTasks(5);
-                        Console.WriteLine("Actual tasks");
-                        foreach(var task in actualTasks)
+                        Console.WriteLine("How many actual tasks to display?");
+                        int n = int.Parse(Console.ReadLine());
+
+                        var actualTasks = manager.GetActualTasks(n);
+                        if (actualTasks.Count == 0)
                         {
-                            Console.WriteLine($"Title: {task.Title}, Description: {task.Description}, Deadline: {task.Deadline.ToString("dd.MM.yyyy")}, Tags: {string.Join(", ", task.Tags)} ");
+                            Console.WriteLine("No tasks available.");
+                            break;
+                        }
+
+                        if (actualTasks.Count < n)
+                        {
+                            Console.WriteLine($"Only {actualTasks.Count} tasks available:");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Actual tasks: ");
+                        }
+                        foreach (var task in actualTasks)
+                        {
+                            string deadlineStr = task.Deadline.ToString("dd.MM.yyyy");
+                            string tagsStr = task.Tags != null ? string.Join(", ", task.Tags) : "No Tags";
+
+                            Console.WriteLine($"Title: {task.Title}, Description: {task.Description}, Deadline: {deadlineStr}, Tags: {tagsStr}");
                         }
                         break;
                     case "4":
