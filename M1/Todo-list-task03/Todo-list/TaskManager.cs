@@ -53,23 +53,15 @@ namespace Todo_list
         public void LoadTasksFromXml() {
             tasks = xmlStorage.LoadData();
         }
-        public void SaveTasksToSQlite()
+        public void SaveTasksToSQLite()
         {
             using (var db = new TodoContext())
-            {
+            { 
+                ClearDatabase();
 
                 foreach (var task in tasks)
                 {
-                  
-                    var existingTask = db.Tasks.FirstOrDefault(t => t.Id == task.Id);
-                    if (existingTask == null)
-                    {
-                        db.Tasks.Add(task);
-                    }
-                    else
-                    {
-                        db.Entry(existingTask).CurrentValues.SetValues(task);
-                    }
+                    db.Tasks.Add(task);
                 }
                 db.SaveChanges();
             }
@@ -81,6 +73,15 @@ namespace Todo_list
                 tasks = db.Tasks.ToList();
             }
         }
+        public void ClearDatabase()
+        {
+            using (var db = new TodoContext())
+            {
+                db.Tasks.RemoveRange(db.Tasks);
+                db.SaveChanges();
+            }
+        }
+
     }
 
 }

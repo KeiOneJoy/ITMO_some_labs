@@ -118,7 +118,7 @@ namespace Todo_list
                                 Console.WriteLine("Saved to XML successfully!");
                                 break;
                             case "3":
-                                manager.SaveTasksToSQlite();
+                                manager.SaveTasksToSQLite();
                                 Console.WriteLine("Saved to SQlite successfully!");
                                 break;
 
